@@ -1,0 +1,137 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    transition: .2s;   
+    .calendar{
+        margin-top: 100px;
+        position: relative;
+        width: 400px;
+        background-color: white;
+        border-radius: 4px;
+        color: black;
+        .month{
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+            text-align: center;
+            >i{
+                font-size: 20px;
+                cursor: pointer;
+                color: gray;
+            }
+            .date{
+                >h1{
+                    font-size: 25px;
+                }
+            }
+        }
+        .weekdays{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            padding: 0 10px;
+            box-sizing: border-box;
+            justify-content: space-between;
+            align-items: center;
+            >div{
+                width: calc(380px / 7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-transform: uppercase;
+            }
+        }
+        .days{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 5px 10px;
+            >div{
+                // margin: 10px 0;
+                width: calc((380px - 28px)/ 7);
+                height: 50px;
+                margin: 2px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: .2s;
+                border-radius: 4px;
+                cursor: pointer;
+                &:hover{
+                    background-color: aqua;
+                    color: white;
+                }
+            }
+        }
+        .date-picker{
+            padding: 20px 10px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            .save:hover .saved-date{
+                opacity: 
+                1;
+            }
+            >div{
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                .saved-date{
+                    position: absolute;
+                    bottom: 0px;
+                    right: 0px;
+                    // width: 100px;
+                    // height: 40px;
+                    padding: 10px 20px;
+                    border-radius: 4px;
+                    background-color: red;
+                    transform: translateX(calc(100% + 2px));
+                    background-color: white;
+                    opacity: 0;
+                    transition: .1s;
+                    pointer-events: none;
+                }
+                >i{
+                    font-size: 20px;
+                    margin-right: 5px;
+                }
+                >span{
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+.prev-date,.next-date{
+    // opacity: .5;
+    background-color: #d8d8d8;
+    color: #a9a9a9;
+}
+
+.today{
+    background-color: aqua;
+}
+
+.today-light{
+    background-color: #00f8ff40;
+}
+
+.active{
+    background: aqua;
+}
