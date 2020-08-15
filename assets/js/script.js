@@ -48,12 +48,21 @@ const RenderCalendar = () => {
         days+=`<div class="calendar-day next-date">${j}</div>`
         monthDays.innerHTML = days;
     }
+    selectDay()
 
+}
+RenderCalendar();
+
+
+
+function prevAndNext(){
     document.querySelectorAll(".prev-date").forEach(element => {
         element.addEventListener('click',function(){
             date.setMonth(date.getMonth()-1);
             RenderCalendar();
-            // selectDay()
+            prevAndNext()
+
+            selectDay()
         })
     });
 
@@ -61,27 +70,25 @@ const RenderCalendar = () => {
         element.addEventListener('click',function(){
             date.setMonth(date.getMonth()+1);
             RenderCalendar();
-            // selectDay()
+            prevAndNext()
+            selectDay()
         })
     });
 
     document.querySelector(".prev").addEventListener('click',function(){
         date.setMonth(date.getMonth()-1);
         RenderCalendar();
-        // selectDay()
+        selectDay()
     })
     
     document.querySelector(".next").addEventListener('click',function(){
         date.setMonth(date.getMonth()+1);
         RenderCalendar();
-        // selectDay()
+        selectDay()
     })
-
-    selectDay()
-
 }
-RenderCalendar();
 
+prevAndNext()
 
 
 function selectDay(){
@@ -107,7 +114,7 @@ document.querySelector('.cancel').addEventListener("click",function(){
     date.setDate(newDate.getDate())
     date.setFullYear(newDate.getFullYear())
     RenderCalendar()
-
+    prevAndNext()
 })
 
 document.querySelector('.save').addEventListener("click",function(){
